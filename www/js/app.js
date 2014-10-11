@@ -71,6 +71,7 @@ angular.module('starter', ['ionic'])
                     } else {
                         console.log('error getting weather information.');
                     }
+                    $scope.$broadcast('scroll.refreshComplete');
                 });
         };
 
