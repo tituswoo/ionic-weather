@@ -26,9 +26,20 @@
     <ion-header-bar class="bar-positive">
         <h1 class="title">Ionic Weather</h1>
     </ion-header-bar>
-    <ion-content padding="true">
-        <h4>Hello world!</h4>
-        <p>Man, Ionic is beautiful.</p>
+    <ion-content padding="true" ng-controller="weatherCtrl">
+        <div class="list">
+            <div class="item item-divider">{{ weather.location.city }}, {{ weather.location.region }}</div>
+            <a class="item item-icon-right">
+                <div>
+                    <h1 class="float-left" style="margin-right: 10px;">{{ weather.item.condition.temp}}
+                        <span class="superscript">&deg;{{ weather.units.temperature }}</span>
+                    </h1>
+                    <p>{{ weather.item.condition.text }}<br>
+                        {{ weather.item.forecast[0].high }}&deg; | {{ weather.item.forecast[0].low }}&deg;</p>
+                </div>
+                <i class="icon ion-ios7-arrow-forward positive"></i>
+            </a>
+        </div>
     </ion-content>
 </ion-pane>
 </body>

@@ -1,1 +1,19 @@
 /* Empty. Add your own CSS if you like */
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.superscript {
+    color: gray;
+    font-size: 14px;
+
+    vertical-align: baseline;
+    position: relative;
+    top: -15px;
+    left: -9px;
+}
