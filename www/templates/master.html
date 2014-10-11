@@ -1,0 +1,26 @@
+<ion-view title="Ionic Weather">
+    <ion-content padding="true" ng-controller="MasterCtrl">
+        <ion-refresher
+                pulling-text="Pull to refresh"
+                on-refresh="refresh()">
+        </ion-refresher>
+        <p style="text-align: center;" ng-if="weather.title == null">
+            <i class="icon ion-ios7-reloading" style="font-size: 30px;"></i><br>
+            Getting weather...
+        </p>
+        <div class="card" ng-show="weather.title != null">
+            <div class="item item-divider">{{ weather.location.city }}, {{ weather.location.region || weather.location.country }}</div>
+            <a class="item item-icon-right" ui-sref="details">
+                <div>
+                    <h1 class="float-left" style="margin-right: 10px;">{{ weather.item.condition.temp}}
+                        <span class="superscript">&deg;{{ weather.units.temperature }}</span>
+                    </h1>
+
+                    <p>{{ weather.item.condition.text }}<br>
+                        {{ weather.item.forecast[0].high }}&deg; | {{ weather.item.forecast[0].low }}&deg;</p>
+                </div>
+                <i class="icon ion-ios7-arrow-forward positive"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
