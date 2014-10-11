@@ -1,5 +1,5 @@
-<ion-view title="Details">
+<ion-view title="{{ weather.location.city }}, {{ weather.location.region || weather.location.country }}">
     <ion-content padding="true">
-
+        <div ng-bind-html="weather.item.description"></div>
     </ion-content>
 </ion-view>

@@ -78,9 +78,9 @@ angular.module('starter', ['ionic'])
                     var woeid = location.data.query.results.Result.woeid;
                     return getWeather(woeid);
                 })
-                .then(function (weather) {
-                    if (weather.status === 200) {
-                        var channel = weather.data.query.results.channel;
+                .then(function (data) {
+                    if (data.status === 200) {
+                        var channel = data.data.query.results.channel;
                         weather = channel;
                         callback(weather);
                     } else {
@@ -90,7 +90,10 @@ angular.module('starter', ['ionic'])
         };
 
         return {
-            refresh: refresh
+            refresh: refresh,
+            getStoredWeatherData: function () {
+                return weather;
+            }
         };
     })
 
@@ -104,6 +107,6 @@ angular.module('starter', ['ionic'])
 
         $scope.refresh();
     })
-    .controller('DetailsCtrl', function ($scope, $http) {
-
+    .controller('DetailsCtrl', function ($scope, $http, WeatherService) {
+        $scope.weather = WeatherService.getStoredWeatherData();
     });
